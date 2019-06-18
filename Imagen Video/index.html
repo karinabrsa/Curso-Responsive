@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            .contenedor-imagen-pequena,
+            .contenedor-imagen-grande{
+                background-color: #464646;
+                /*Al hacer mas pequeña o grande la ventana
+                el contenedor y las imagenes no se hacian flexibles,
+                mantenian su tamaño. Para cambiar eso se elimina
+                tambien width
+                width: 700px;*/
+                /*El contenedor era muy alto
+                por eso se elimina height
+                height: 700px;*/
+                /*se puso este width en lugar del otro para que
+                las imagenes no abarcaran todo el ancho de la pantalla
+                width: 50%;*/
+            }
+            img{
+                width: 100%;
+                max-width: 420px;
+            }
+            video{
+                width: 100%;
+            }
+            .contenedor-video{
+                /*ayuda a que la proporcion del video se mantenga constante
+                el video esta en formato 16 a 9, 9/16=0.5625
+                */
+                padding-bottom: 56.25%;
+                height: 0;
+                overflow: hidden;
+                position: relative;
+            }
+            iframe{
+                /*Al principio solo se definio el width
+                pero el video se veia muy pequeño, asi que
+                se definieron propiedades para el contenedor-video
+                y otras para iframe*/
+                width: 100%;
+                position: absolute;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+        </style> 
+    </head>
+    <body>
+        <figure class="contenedor-imagen-pequena">
+            <img src="imagen-pequena.png">
+        </figure>        
+        <figure class="contenedor-imagen-grande">
+            <img src="imagen-grande.png">
+        </figure>
+        <video src="video.mp4" controls></video>
+        <div class="contenedor-video">
+            <iframe src="https://www.youtube.com/watch?v=sDP8ICaz-QU"></iframe>
+        </div>
+    </body>
+</html>
